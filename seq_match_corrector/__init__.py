@@ -2,7 +2,6 @@ from difflib import SequenceMatcher
 
 def ratios(target: list, dictionary: list) -> list:
     def ratio(word: str):
-        if not word: return
         l = len(word)
         return sorted(
             filter(
@@ -11,7 +10,7 @@ def ratios(target: list, dictionary: list) -> list:
             ), key=lambda x: x[1], reverse=True
         )
     return list(
-        filter(lambda x: x, map(ratio, target))
+        map(ratio, target)
     )
 
 def correct(target: list, dictionary: list) -> dict:
